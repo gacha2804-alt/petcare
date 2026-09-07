@@ -1,206 +1,216 @@
 Biblioteca de Prompts — PetCare
 
-1. Definición de la arquitectura del sistema
+ 1. Análisis general del proyecto
 
-Objetivo
+> Actúa como analista de sistemas y analiza el proyecto PetCare. PetCare es una plataforma híbrida Web + Aplicación móvil enfocada en el cuidado preventivo de mascotas mediante Inteligencia Artificial. Los roles son Propietario, Veterinario, Personal de clínica y Administrador. El sistema debe incluir autenticación, gestión de mascotas, historial de salud, síntomas, observaciones, vacunas, medicamentos, seguimiento de evolución, citas, notificaciones, roles y permisos, evaluación preventiva mediante IA, detección de cambios, resumen de historial mediante IA, panel veterinario, panel administrativo, QR de emergencia y localización de veterinarias. Analiza el proyecto y divídelo en módulos funcionales. Para cada módulo indica objetivo, usuarios, funcionalidades, datos necesarios y dependencias con otros módulos. No agregues funcionalidades innecesarias para el MVP.
 
-Utilizar Inteligencia Artificial para proponer una arquitectura inicial para PetCare, 
-teniendo en cuenta que el proyecto está compuesto por una aplicación móvil para propietarios 
-y una plataforma web para veterinarios, personal de clínica y administradores.
+ 2. Definición de requisitos
 
-Prompt utilizado
+> Actúa como ingeniero de requisitos. A partir de la descripción del proyecto PetCare, genera los requisitos funcionales y no funcionales del sistema. Organiza los requisitos por módulos: autenticación, mascotas, salud, citas, IA, emergencias, veterinarias, notificaciones y administración. Para cada requisito utiliza un identificador único como RF-001, RF-002, etc. No inventes funcionalidades que no estén relacionadas con el proyecto.
 
-Actúa como arquitecto de software y analiza el siguiente proyecto llamado PetCare. 
-Es una plataforma híbrida Web + Aplicación móvil enfocada en el cuidado preventivo
-de mascotas mediante Inteligencia Artificial.
-Los roles del sistema son: Propietario, Veterinario, Personal de clínica y Administrador.
-El MVP incluye autenticación, gestión de mascotas, historial de salud, síntomas y observaciones, 
-vacunas, medicamentos, seguimiento de evolución, citas, notificaciones, roles y permisos, 
-evaluación preventiva mediante IA, detección de cambios, resumen de historial mediante IA, 
-panel web para veterinarios, panel administrativo, QR de emergencia y localización de veterinarias.
-Propón una arquitectura tecnológica organizada por frontend, backend, base de datos, inteligencia artificial 
-y servicios externos. Explica la función de cada componente y cómo se comunicarían entre sí.
+ 3. Arquitectura general del sistema
 
- Resultado
+> Actúa como arquitecto de software. Diseña la arquitectura tecnológica para PetCare, una plataforma híbrida compuesta por una aplicación web y una aplicación móvil. La arquitectura debe contemplar frontend web, aplicación móvil, backend/API REST, base de datos, servicio de autenticación, servicio de Inteligencia Artificial, notificaciones, mapas/localización y generación y lectura de códigos QR. Explica cómo se comunican los componentes. Propón una arquitectura sencilla, escalable y adecuada para un proyecto universitario. No agregues microservicios innecesarios.
 
-La IA permitió obtener una propuesta inicial de arquitectura separando claramente el frontend móvil, 
-frontend web, backend, base de datos y servicios relacionados con IA.
+ 4. Selección de tecnologías
 
- ¿Qué funcionó?
- 
--Ayudó a identificar los componentes principales del sistema.
--Permitió separar las responsabilidades de cada parte.
--Facilitó la comprensión de la comunicación entre frontend, backend y base de datos.
--Ayudó a identificar servicios adicionales necesarios para notificaciones, QR y localización.
+> Recomienda un stack tecnológico para desarrollar PetCare como plataforma híbrida Web + Aplicación móvil. Compara opciones para frontend web, aplicación móvil, backend, base de datos, autenticación, Inteligencia Artificial, notificaciones, mapas y código QR. El proyecto debe ser adecuado para estudiantes y permitir desarrollo local. Prioriza tecnologías gratuitas o con planes gratuitos. Explica ventajas y desventajas de cada alternativa y termina proponiendo un stack recomendado.
 
-¿Qué no funcionó?
+ 5. Estructura de carpetas
 
-La primera propuesta incluía tecnologías y servicios que no necesariamente eran necesarios para el MVP
-y aumentaban la complejidad del proyecto.
+> Diseña una estructura profesional de carpetas para PetCare. El proyecto tendrá frontend web, aplicación móvil, backend, base de datos, documentación y módulo de IA. Propón una estructura organizada y escalable. Incluye los archivos principales que debería tener cada carpeta y explica la responsabilidad de cada una. La estructura debe ser adecuada para trabajar colaborativamente con Git y GitHub.
 
-¿Qué se corrigió?
+ 6. Diseño de base de datos
 
-Se simplificó la arquitectura y se priorizaron únicamente los componentes necesarios para el MVP. 
-También se mantuvo la IA como herramienta de apoyo preventivo y no como sustituto del diagnóstico veterinario.
+> Diseña una base de datos relacional para PetCare. Debe manejar usuarios, roles, mascotas, historial de salud, síntomas, observaciones, vacunas, medicamentos, peso, evolución, alimentación, documentos, citas, notificaciones, evaluaciones de IA, alertas, clínicas y veterinarias. Cada propietario puede tener varias mascotas. Los veterinarios pueden consultar la información autorizada de las mascotas. El personal de clínica tendrá permisos limitados y el administrador podrá gestionar el sistema. Define tablas, campos, tipos de datos, claves primarias, claves foráneas y relaciones. Normaliza el modelo y evita almacenar información duplicada. Finalmente genera el script SQL de creación de la base de datos.
 
-2. Diseño de la base de datos
+ 7. Backend y API REST
 
-Objetivo
+> Actúa como desarrollador backend. Construye el backend de PetCare utilizando una arquitectura organizada. El backend debe proporcionar una API REST para que la aplicación web y móvil puedan comunicarse con la misma plataforma. Debe incluir autenticación, usuarios, roles, mascotas, historial de salud, vacunas, medicamentos, peso y evolución, citas, notificaciones, emergencias, veterinarias y funciones de Inteligencia Artificial. Utiliza controladores, rutas, servicios y middleware. Implementa manejo de errores y validación de datos. Explica dónde debe colocarse cada archivo. No mezcles la lógica de negocio directamente con las rutas.
 
-Utilizar IA para identificar las entidades principales necesarias para almacenar la información de propietarios, 
-mascotas, historial médico, vacunas, medicamentos y citas.
+ 8. Diseño de API
 
-Prompt utilizado
+> Diseña todos los endpoints REST necesarios para PetCare. Organízalos por módulos: autenticación, usuarios, mascotas, salud, vacunas, medicamentos, evolución, citas, notificaciones, IA, emergencias, veterinarias y administración. Para cada endpoint indica método HTTP, URL, propósito, parámetros, datos enviados, respuesta esperada y rol autorizado. Utiliza nombres consistentes y una estructura adecuada para que tanto la aplicación web como la móvil puedan consumir la misma API.
 
-Analiza el proyecto PetCare y diseña un modelo de base de datos relacional para su MVP.
-Debe permitir almacenar información de usuarios con diferentes roles: Propietario, Veterinario, Personal de clínica y Administrador.
-Cada propietario puede registrar una o varias mascotas. Para cada mascota se debe almacenar información básica, historial de salud,
-síntomas y observaciones, vacunas, medicamentos, peso y evolución, citas veterinarias, documentos y datos necesarios para un perfil
-de emergencia mediante QR.
-Propón las tablas principales, sus campos, claves primarias y relaciones entre ellas.
-Evita crear tablas innecesarias y explica brevemente la finalidad de cada tabla.
+ 9. Autenticación
 
-Resultado
+> Implementa el módulo de autenticación de PetCare. Debe permitir registro, inicio de sesión, cierre de sesión, recuperación de contraseña, protección de rutas y manejo de roles. Los roles son Propietario, Veterinario, Personal de clínica y Administrador. Utiliza autenticación segura basada en tokens. Las contraseñas deben almacenarse utilizando hash seguro. Nunca almacenes contraseñas en texto plano. Explica cómo el frontend web y la aplicación móvil utilizarán la autenticación.
 
-La IA propuso entidades como usuarios, mascotas, historial de salud, vacunas, medicamentos, citas y registros de evolución.
+ 10. Gestión de mascotas
 
- ¿Qué funcionó?
+> Diseña e implementa el módulo de gestión de mascotas de PetCare. El propietario debe poder registrar, editar, consultar y eliminar sus mascotas. Los datos deben incluir nombre, especie, raza, sexo, fecha de nacimiento, peso, foto y características relevantes. El veterinario debe poder consultar la información de las mascotas que tenga autorizadas. Implementa frontend, backend, endpoints y modelo de base de datos. Agrega validaciones para impedir que un propietario acceda a mascotas de otros usuarios.
 
--Permitió identificar rápidamente las entidades principales.
--Ayudó a detectar relaciones entre usuarios y mascotas.
--Facilitó la organización de la información del historial de cada mascota.
--Sirvió como punto de partida para construir el modelo entidad-relación.
+ 11. Historial de salud
 
-¿Qué no funcionó?
+> Implementa el módulo de historial de salud de PetCare. Cada mascota debe tener un historial organizado cronológicamente. Debe permitir registrar consultas, síntomas, observaciones, diagnósticos registrados por profesionales, tratamientos, medicamentos, vacunas y documentos. Diferencia claramente la información introducida por el propietario de la información registrada por un veterinario. Implementa frontend, backend y base de datos respetando los permisos de cada rol.
 
-La primera propuesta separaba demasiados datos en tablas independientes y algunas estructuras podían generar complejidad innecesaria.
+ 12. Vacunas
 
-¿Qué se corrigió?
+> Implementa el módulo de vacunas de PetCare. Debe permitir registrar nombre de la vacuna, fecha de aplicación, próxima fecha, veterinario responsable y observaciones. Los propietarios pueden consultar la información permitida y los veterinarios pueden gestionar la información clínica. El sistema debe generar recordatorios para próximas vacunas. Diseña frontend, backend, endpoints y estructura de base de datos.
 
-Se revisaron las entidades y se eliminaron estructuras que no eran necesarias para el MVP.
-También se verificó que cada relación tuviera sentido con los roles y funcionalidades definidas para PetCare.
+ 13. Medicamentos
 
- 3. Definición de roles y permisos
+> Implementa el módulo de medicamentos de PetCare. Debe permitir registrar nombre del medicamento, dosis cuando corresponda, frecuencia, fecha de inicio, fecha de finalización, veterinario responsable y observaciones. Los propietarios pueden consultar la información y recibir recordatorios. Los veterinarios pueden registrar y modificar información clínica según sus permisos. No permitas que la Inteligencia Artificial prescriba medicamentos.
 
- Objetivo
+ 14. Seguimiento de peso y evolución
 
-Validar la matriz de permisos de PetCare y determinar qué funcionalidades puede utilizar cada tipo de usuario.
+> Crea el módulo de seguimiento de evolución de mascotas. El usuario debe poder registrar el peso de la mascota periódicamente. El sistema debe guardar fecha, peso y observación. Debe mostrar una gráfica de evolución. También debe permitir al módulo de IA analizar cambios significativos en la evolución. No realices diagnósticos médicos. Implementa frontend, backend y base de datos.
 
-Prompt utilizado
+ 15. Gestión de citas
 
-Revisa la siguiente matriz de permisos para una plataforma llamada PetCare:
-- Propietario: puede gestionar sus mascotas, consultar y registrar información de salud, gestionar citas, utilizar las funciones de IA y consultar emergencias.
-- Veterinario: puede consultar mascotas, gestionar información de salud, gestionar citas, utilizar IA y consultar información de emergencia.
-- Personal de clínica: puede consultar información de mascotas, consultar información de salud, gestionar citas y consultar información de emergencia.
-- Administrador: tiene acceso a las funciones administrativas y puede consultar la información necesaria para administrar la plataforma.
-- Analiza si los permisos son coherentes con las responsabilidades de cada rol. Identifica posibles riesgos de seguridad y propone ajustes sin modificar el objetivo general del proyecto.
+> Implementa el módulo de citas veterinarias de PetCare. El propietario debe poder solicitar y consultar citas. El veterinario debe poder ver, aceptar, reprogramar y cancelar citas. El personal de clínica debe poder gestionar las citas según sus permisos. La cita debe incluir mascota, propietario, veterinario, fecha, hora, motivo, estado y observaciones. Implementa validaciones para evitar conflictos de horarios.
 
- Resultado
+16. Notificaciones y recordatorios
 
-La IA permitió detectar que no todos los usuarios deben tener el mismo nivel de acceso a la información.
+> Diseña el sistema de notificaciones de PetCare. Debe generar recordatorios relacionados con vacunas, medicamentos, citas, seguimiento de peso y alertas preventivas generadas por IA. Diferencia notificaciones informativas de alertas importantes. Diseña el modelo de datos, backend y frontend. Evita generar notificaciones excesivas y permite controlar las preferencias del usuario.
 
- ¿Qué funcionó?
+ 17. Inteligencia Artificial — Evaluación preventiva
 
-* Ayudó a diferenciar claramente las responsabilidades.
-* Permitió identificar información que debe estar protegida.
-* Sirvió para justificar el uso de roles y permisos.
-* Ayudó a plantear el principio de mínimo privilegio.
+> Diseña la función de evaluación preventiva mediante Inteligencia Artificial de PetCare. La IA recibirá información proporcionada por el usuario como especie, edad, peso, síntomas, observaciones, cambios de comportamiento e historial relevante. La IA debe generar orientación preventiva, nivel de atención sugerido, posibles factores que deberían observarse y recomendación de consultar a un veterinario cuando corresponda. La IA NO debe realizar diagnósticos definitivos, prescribir medicamentos ni sustituir al veterinario. Diseña el flujo completo desde el frontend hasta el servicio de IA y el almacenamiento del resultado.
 
- ¿Qué no funcionó?
+ 18. Inteligencia Artificial — Detección de cambios
 
-La primera propuesta otorgaba al personal de clínica acceso a información que podría no ser necesaria para realizar sus funciones.
+> Diseña una función de Inteligencia Artificial para detectar cambios relevantes en los registros de una mascota. Utiliza información histórica como peso, síntomas, alimentación, observaciones, medicamentos y actividad registrada. La IA debe comparar información actual con información histórica y señalar cambios que podrían requerir atención. No debe realizar diagnósticos. Explica datos de entrada, proceso, resultado, alertas y limitaciones. Genera ejemplos de respuestas seguras para el propietario.
 
- ¿Qué se corrigió?
+ 19. Inteligencia Artificial — Resumen del historial
 
-Se ajustaron los permisos para que cada rol tenga únicamente el acceso necesario.
-También se estableció que el administrador tiene funciones de gestión del sistema y que la información clínica debe manejarse
-de acuerdo con los permisos establecidos.
+> Crea una función de Inteligencia Artificial que genere un resumen del historial de una mascota para facilitar una consulta veterinaria. El resumen debe incluir datos básicos, antecedentes relevantes, vacunas, medicamentos, síntomas recientes, cambios de peso, consultas anteriores y observaciones importantes. El resumen debe ser claro, breve y organizado cronológicamente. No inventes información que no esté presente en los registros. Indica explícitamente cuando un dato no esté disponible.
 
-4. Diseño del módulo de Inteligencia Artificial
+ 20. Inteligencia Artificial — Diseño de prompts
 
-Objetivo
+> Diseña un sistema de prompts para el módulo de Inteligencia Artificial de PetCare. Crea prompts separados para evaluación preventiva, detección de cambios y resumen del historial. Cada prompt debe incluir contexto, datos de entrada, instrucciones, restricciones y formato de salida. La IA debe evitar diagnósticos definitivos, prescripción de medicamentos y afirmaciones que puedan sustituir al veterinario. Diseña respuestas claras y seguras para propietarios y profesionales veterinarios.
 
-Definir cómo podría utilizarse la Inteligencia Artificial dentro de PetCare sin convertirla en un sistema de diagnóstico veterinario.
+ 21. QR de emergencia
 
- Prompt utilizado
+> Diseña e implementa el módulo de perfil de emergencia mediante código QR para PetCare. Cada mascota debe tener un código QR único. Al escanearlo, una persona autorizada debe poder consultar información básica de emergencia como nombre de la mascota, especie, información relevante, contacto del propietario e información veterinaria que el propietario haya autorizado. No debe mostrar información privada innecesaria. Diseña backend, generación del QR, pantalla móvil y página web de consulta.
 
-- Diseña el módulo de Inteligencia Artificial para PetCare, una plataforma de cuidado preventivo de mascotas.
-- La IA debe utilizar información proporcionada por el propietario y registrada en el historial de la mascota, como síntomas,
-observaciones, peso, evolución, medicamentos y antecedentes.
-- La IA debe generar orientación preventiva, identificar posibles cambios relevantes y generar resúmenes del historial para
-facilitar la comunicación entre propietario y veterinario.
-- No debe realizar diagnósticos definitivos ni reemplazar la valoración de un profesional veterinario.
-- Propón las funciones del módulo, los datos de entrada, los resultados esperados y las principales medidas de seguridad que deberían implementarse.
+ 22. Localización de veterinarias
 
-Resultado
+> Diseña el módulo de localización de veterinarias cercanas para PetCare. La aplicación debe permitir al usuario encontrar veterinarias cercanas utilizando su ubicación. Debe mostrar nombre, dirección, distancia aproximada, información de contacto cuando esté disponible y ubicación en mapa. Explica cómo integrar un servicio de mapas y cómo solicitar permisos de ubicación en la aplicación móvil. Incluye consideraciones de privacidad.
 
-Se definieron tres funciones principales para el uso de IA:
+23. Aplicación móvil para propietarios
 
-1. Evaluación preventiva.
-2. Detección de cambios o patrones.
-3. Generación de resúmenes del historial.
+> Diseña la aplicación móvil de PetCare enfocada principalmente en propietarios. Debe incluir inicio de sesión, registro, inicio/dashboard, mis mascotas, perfil de mascota, historial de salud, vacunas, medicamentos, peso y evolución, citas, notificaciones, evaluación preventiva mediante IA, resumen mediante IA, QR de emergencia, veterinarias cercanas y perfil del usuario. Diseña una navegación sencilla para dispositivos móviles. Prioriza accesibilidad, claridad y facilidad de uso. No agregues funcionalidades fuera del MVP.
 
- ¿Qué funcionó?
+ 24. Navegación de la aplicación móvil
 
-- Permitió establecer claramente el propósito de la IA.
-- Ayudó a diferenciar orientación preventiva de diagnóstico.
-- Permitió identificar qué información puede utilizarse como entrada.
-- Ayudó a definir mensajes de advertencia para los usuarios.
+> Diseña la navegación completa de la aplicación móvil PetCare. Define las pantallas principales, navegación inferior, menús, rutas y flujo entre pantallas para el rol Propietario. Incluye inicio, mascotas, salud, citas, IA, emergencias, veterinarias, notificaciones y perfil. Explica qué acciones puede realizar el usuario desde cada pantalla. La navegación debe ser intuitiva y adecuada para dispositivos móviles.
 
-¿Qué no funcionó?
+ 25. Aplicación web para veterinarios
 
-Una primera propuesta utilizaba términos como "diagnosticar", "determinar enfermedad" o "indicar tratamiento", 
-lo cual no correspondía con el objetivo de PetCare.
+> Diseña el frontend web de PetCare orientado a veterinarios y personal de clínica. El panel debe permitir inicio/dashboard, buscar mascotas autorizadas, consultar historial, revisar síntomas, revisar vacunas, revisar medicamentos, gestionar citas, consultar evolución, consultar resúmenes generados por IA y registrar información clínica según permisos. Diseña una interfaz profesional, clara y responsive. Utiliza componentes reutilizables. El acceso debe depender del rol del usuario.
 
- ¿Qué se corrigió?
-
-Se reemplazaron esas funciones por evaluación preventiva, identificación de posibles cambios, generación de alertas y resumen de información.
-Se estableció que la IA es una herramienta de apoyo y que las decisiones clínicas corresponden al veterinario.
-
- 5. Generación de historias de usuario
-
- Objetivo
-
-Utilizar IA para transformar las funcionalidades del MVP en historias de usuario que puedan utilizarse posteriormente para organizar el desarrollo.
-
- Prompt utilizado
-
--Actúa como analista de requisitos y crea historias de usuario para el proyecto PetCare.
-- Los roles son:
-* Propietario
-* Veterinario
-* Personal de clínica
-* Administrador
-
-- El MVP incluye autenticación, gestión de mascotas, historial de salud, síntomas y observaciones, vacunas, medicamentos,
-seguimiento de evolución, citas, notificaciones, roles y permisos, evaluación preventiva mediante IA, detección de cambios,
-resumen de historial mediante IA, panel web para veterinarios, panel administrativo, QR de emergencia y localización de veterinarias.
-
-- Escribe las historias utilizando el formato:
-
-- "Como [rol], quiero [acción], para [beneficio]."
-
-- Evita historias demasiado grandes y divídelas cuando sea necesario.
-
- Resultado
-
-La IA generó historias de usuario agrupadas por rol y funcionalidad.
-
- ¿Qué funcionó?
-
-- Permitió convertir rápidamente las funcionalidades generales en requisitos más concretos.
-- Ayudó a identificar necesidades específicas de cada rol.
-- Facilitó la organización inicial del backlog.
--Permitió detectar funcionalidades que necesitaban dividirse.
-
-¿Qué no funcionó?
-
-Algunas historias generadas inicialmente eran demasiado amplias y agrupaban varias funcionalidades diferentes en una sola historia.
-
- ¿Qué se corrigió?
-
-Las historias grandes se dividieron en historias más pequeñas y específicas. Se mantuvo el formato "Como..., quiero..., para..." 
-para facilitar posteriormente la definición de criterios de aceptación.
-
-
-En PetCare, la IA se plantea como una herramienta de apoyo para organizar información, detectar posibles cambios y facilitar el seguimiento preventivo, pero no como sustituto del criterio profesional veterinario.
+ 26. Panel administrativo
+
+> Diseña el panel administrativo web de PetCare. El administrador debe poder gestionar usuarios, roles, veterinarios, personal de clínica, clínicas, estado de cuentas y configuraciones generales. El administrador no debe modificar información clínica sin una justificación y permiso específico. Incluye dashboard, tablas, búsqueda, filtros, crear, editar, desactivar y consultar. Diseña una interfaz profesional y segura.
+
+ 27. Control de permisos
+
+> Implementa autorización basada en roles para PetCare. Los roles son Propietario, Veterinario, Personal de clínica y Administrador. Crea una matriz de permisos para cada módulo. Después implementa middleware en el backend y protección de rutas en frontend. Un usuario nunca debe poder acceder a información que no corresponda a su rol. También valida en backend los permisos aunque el frontend oculte los botones.
+
+ 28. Diseño de interfaz
+
+> Diseña la identidad visual y experiencia de usuario de PetCare. La plataforma debe transmitir confianza, cuidado, tecnología, cercanía y profesionalismo veterinario. Define colores, tipografías, botones, tarjetas, formularios, navegación, iconografía y estados de alerta. La interfaz debe ser responsive para web y adaptable a dispositivos móviles. Prioriza accesibilidad y facilidad de uso.
+
+ 29. Diseño responsive
+
+> Revisa la interfaz de PetCare y conviértela en un diseño responsive. Debe funcionar correctamente en computadores, tablets y teléfonos móviles. Revisa menús, tablas, formularios, tarjetas, gráficas, botones y modales. No reduzcas simplemente el tamaño de los elementos. Adapta la distribución y navegación según el dispositivo.
+
+ 30. Pruebas del sistema
+
+> Actúa como ingeniero QA y crea un plan de pruebas para PetCare. Incluye pruebas para registro, login, roles, mascotas, historial, vacunas, medicamentos, citas, notificaciones, IA, QR, veterinarias, panel veterinario y panel administrativo. Para cada prueba indica ID, funcionalidad, precondiciones, pasos, resultado esperado, resultado obtenido y estado. Incluye pruebas positivas y negativas.
+
+ 31. Corrección de errores
+
+> Analiza el siguiente error de PetCare:
+>
+> [Uncaught ReferenceError: Mascotas is not defined at App.jsx:25]
+>
+> Indica:
+>
+> 1. Qué significa.
+> 2. Cuál podría ser la causa.
+> 3. Qué archivo debería revisarse.
+> 4. Cómo corregirlo.
+> 5. Cómo comprobar que la solución funciona.
+>
+> No cambies código que no esté relacionado con el error. Si necesitas información adicional, indica exactamente qué archivo o código necesitas revisar.
+
+ 32. Revisión de código
+
+> Actúa como desarrollador senior y revisa el siguiente código de PetCare:
+>
+> [import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function Mascotas() {
+  const [mascotas, setMascotas] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/mascotas")
+      .then((response) => {
+        setMascotas(response.data);
+      });
+  }, []);
+
+  return (
+    <div>
+      <h2>Mis Mascotas</h2>
+
+      {mascotas.map((mascota) => (
+        <div key={mascota.id}>
+          <h3>{mascota.nombre}</h3>
+          <p>{mascota.especie}</p>
+          <p>{mascota.raza}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Mascotas;]
+>
+> Analiza errores, seguridad, organización, código duplicado, manejo de errores, validaciones, rendimiento y legibilidad. No reescribas todo el archivo. Primero identifica los problemas y después propone las modificaciones necesarias. Mantén la arquitectura y funcionalidades existentes.
+
+ 33. Seguridad, documentación y GitHub
+
+> Realiza una revisión completa de seguridad y documentación del proyecto PetCare. Revisa autenticación, contraseñas, tokens, roles, permisos, API, base de datos, variables de entorno, información de mascotas, información clínica, QR de emergencia y datos de ubicación. Indica también qué debe incluir el README y qué archivos deben estar en .gitignore. Asegúrate de que contraseñas, tokens, claves privadas, archivos .env y node_modules no se suban al repositorio.
+
+ 34. Prompt maestro para continuar el desarrollo
+
+> Actúa como desarrollador senior del proyecto PetCare.
+>
+> Antes de modificar cualquier archivo, analiza el contexto del proyecto y respeta:
+>
+> * La arquitectura existente.
+> * Los roles existentes.
+> * Los endpoints existentes.
+> * La estructura de base de datos.
+> * Los componentes existentes.
+> * Las funcionalidades del MVP.
+>
+> No reemplaces código funcional sin justificarlo.
+>
+> No cambies tecnologías sin autorización.
+>
+> No inventes archivos que no existan.
+>
+> Cuando necesites modificar un archivo:
+>
+> 1. Explica qué se va a modificar.
+> 2. Indica por qué.
+> 3. Proporciona el código completo si es necesario.
+> 4. Indica exactamente dónde debe colocarse.
+> 5. Explica cómo probarlo.
+>
+> Si existe un error, corrige primero la causa y evita realizar cambios innecesarios.
+>
+> Mantén siempre la separación entre:
+>
+> * Aplicación web.
+> * Aplicación móvil.
+> * Backend.
+> * Base de datos.
+> * Inteligencia Artificial.
+>
+> El objetivo es mantener PetCare funcional, seguro, organizado y escalable.
