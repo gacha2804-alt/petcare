@@ -1,0 +1,155 @@
+<mxfile host="app.diagrams.net" agent="opencode" version="24.0.0">
+  <diagram id="petcare-componentes" name="Componentes PetCare">
+    <mxGraphModel dx="1300" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="TITLE" value="PetCare — Diagrama de Componentes (flujo de datos y acceso por rol)" style="text;html=1;whiteSpace=wrap;align=left;fontSize=16;fontStyle=1;fontColor=#134e4a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="8" width="760" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- 1. Actores -->
+        <mxCell id="ACTORES" value="Actores — acceso por rol (RBAC)" style="swimlane;fontStyle=1;fontSize=13;align=center;fillColor=#f8fafc;strokeColor=#94a3b8;startSize=28;html=1;whiteSpace=wrap;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="O" value="&#128100; Propietario" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontColor=#78350f;fontSize=12;" vertex="1" parent="ACTORES">
+          <mxGeometry x="80" y="72" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V" value="&#129657;&#65039; Veterinario" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontColor=#78350f;fontSize=12;" vertex="1" parent="ACTORES">
+          <mxGeometry x="340" y="72" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="P" value="&#129489;&#8205;&#128187; Personal de Clínica" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontColor=#78350f;fontSize=12;" vertex="1" parent="ACTORES">
+          <mxGeometry x="600" y="72" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AD" value="&#128737;&#65039; Administrador" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontColor=#78350f;fontSize=12;" vertex="1" parent="ACTORES">
+          <mxGeometry x="860" y="72" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PUB" value="&#127760; Público (QR)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontColor=#78350f;fontSize=12;" vertex="1" parent="ACTORES">
+          <mxGeometry x="1100" y="72" width="200" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 2. Capa Clientes -->
+        <mxCell id="CLIENTES" value="Capa Clientes" style="swimlane;fontStyle=1;fontSize=13;align=center;fillColor=#f8fafc;strokeColor=#94a3b8;startSize=28;html=1;whiteSpace=wrap;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="1300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="MOVIL" value="App Móvil (React Native + Expo)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#0d9488;fontColor=#134e4a;fontSize=12;" vertex="1" parent="CLIENTES">
+          <mxGeometry x="80" y="178" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WEB" value="App Web (React + Vite)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#0d9488;fontColor=#134e4a;fontSize=12;" vertex="1" parent="CLIENTES">
+          <mxGeometry x="500" y="178" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QR" value="Vista pública QR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ccfbf1;strokeColor=#0d9488;fontColor=#134e4a;fontSize=12;" vertex="1" parent="CLIENTES">
+          <mxGeometry x="920" y="178" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 3. Capa Servicios -->
+        <mxCell id="BACKEND" value="Capa Servicios — API (FastAPI)" style="swimlane;fontStyle=1;fontSize=13;align=center;fillColor=#f8fafc;strokeColor=#94a3b8;startSize=28;html=1;whiteSpace=wrap;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="1300" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="API" value="API REST /api/v1 + JWT" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#bae6fd;strokeColor=#0284c7;fontColor=#0c4a6e;fontSize=12;fontStyle=1;" vertex="1" parent="BACKEND">
+          <mxGeometry x="560" y="298" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AUTH" value="Servicio Auth + RBAC" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="80" y="372" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PETS" value="Servicio Mascotas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="290" y="372" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HIST" value="Servicio Historial Clínico" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="500" y="372" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="APPT" value="Servicio Citas y Agenda" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="710" y="372" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WAIT" value="Servicio Lista de Espera" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="920" y="372" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="NOTIF" value="Servicio Notificaciones" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="290" y="452" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IA" value="Servicio IA Preventiva" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="500" y="452" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="REP" value="Servicio Reportes" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2fe;strokeColor=#0369a1;fontColor=#0c4a6e;fontSize=12;" vertex="1" parent="BACKEND">
+          <mxGeometry x="710" y="452" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 4. Capa Datos e Infraestructura -->
+        <mxCell id="DATOS" value="Capa Datos e Infraestructura" style="swimlane;fontStyle=1;fontSize=13;align=center;fillColor=#f8fafc;strokeColor=#94a3b8;startSize=28;html=1;whiteSpace=wrap;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="570" width="1300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="CELERY" value="Celery — tareas batch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fed7aa;strokeColor=#c2410c;fontColor=#7c2d12;fontSize=12;" vertex="1" parent="DATOS">
+          <mxGeometry x="80" y="612" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="REDIS" value="Redis — caché / broker / colas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fed7aa;strokeColor=#c2410c;fontColor=#7c2d12;fontSize=12;" vertex="1" parent="DATOS">
+          <mxGeometry x="380" y="612" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DB" value="PostgreSQL — fuente única" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fed7aa;strokeColor=#c2410c;fontColor=#7c2d12;fontSize=12;fontStyle=1;" vertex="1" parent="DATOS">
+          <mxGeometry x="680" y="612" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="S3" value="S3 — exámenes y PDF" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fed7aa;strokeColor=#c2410c;fontColor=#7c2d12;fontSize=12;" vertex="1" parent="DATOS">
+          <mxGeometry x="980" y="612" width="240" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 5. Proveedores externos -->
+        <mxCell id="EXT" value="Proveedores externos" style="swimlane;fontStyle=1;fontSize=13;align=center;fillColor=#f8fafc;strokeColor=#94a3b8;startSize=28;html=1;whiteSpace=wrap;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="1300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="WA" value="WhatsApp Business API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#be185d;fontColor=#831843;fontSize=12;" vertex="1" parent="EXT">
+          <mxGeometry x="80" y="762" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FCM" value="Firebase Cloud Messaging" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#be185d;fontColor=#831843;fontSize=12;" vertex="1" parent="EXT">
+          <mxGeometry x="500" y="762" width="300" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GEMINI" value="Google Gemini API" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fce7f3;strokeColor=#be185d;fontColor=#831843;fontSize=12;" vertex="1" parent="EXT">
+          <mxGeometry x="920" y="762" width="300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Edges: actores -> clientes -->
+        <mxCell id="e01" value="historial, citas, espera, IA, push" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="O" target="MOVIL"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e02" value="historial completo, vacunas, tablero" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="V" target="WEB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e03" value="tablero del día, slots, espera, semanal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="P" target="WEB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e04" value="usuarios, clínicas, protocolos, reportes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="AD" target="WEB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e05" value="sin login (token QR)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="PUB" target="QR"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: clientes -> API -->
+        <mxCell id="e06" value="HTTPS /api/v1 (JWT)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="MOVIL" target="API"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e07" value="HTTPS /api/v1 (JWT)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="WEB" target="API"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e08" value="GET público (token)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="QR" target="API"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: API -> servicios -->
+        <mxCell id="e09" value="valida token y rol" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="AUTH"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="PETS"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="HIST"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="APPT"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="WAIT"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="NOTIF"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="IA"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;endArrow=block;endFill=1;" edge="1" parent="1" source="API" target="REP"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: servicios -> datos -->
+        <mxCell id="e17" value="roles/usuarios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="AUTH" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" value="CRUD mascotas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="PETS" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" value="historial multi-sede" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="HIST" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" value="exámenes/PDF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="HIST" target="S3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" value="citas y cupos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="APPT" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" value="libera cupo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="APPT" target="WAIT"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" value="cola por horario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="WAIT" target="REDIS"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e24" value="persiste consultas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="IA" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e25" value="reportes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="REP" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: servicios -> externos -->
+        <mxCell id="e26" value="recordatorios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="NOTIF" target="WA"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e27" value="push" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="NOTIF" target="FCM"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e28" value="triaje/resúmenes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="IA" target="GEMINI"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- Edges: Celery -->
+        <mxCell id="e29" value="programa/consume" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="CELERY" target="REDIS"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e30" value="batch vencimientos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="CELERY" target="DB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e31" value="dispara recordatorios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="CELERY" target="NOTIF"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e32" value="libera cupos no confirmados" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#64748b;fontSize=10;fontColor=#334155;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;" edge="1" parent="1" source="CELERY" target="APPT"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

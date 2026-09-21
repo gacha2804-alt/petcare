@@ -1,0 +1,77 @@
+flowchart TB
+    subgraph ACTORES["Actores — acceso por rol (RBAC)"]
+        O["Propietario"]
+        V["Veterinario"]
+        P["Personal de Clinica"]
+        AD["Administrador"]
+        PUB["Publico (QR)"]
+    end
+
+    subgraph CLIENTES["Capa Clientes"]
+        MOVIL["App Movil (React Native + Expo)"]
+        WEB["App Web (React + Vite)"]
+        QR["Vista publica QR"]
+    end
+
+    subgraph BACKEND["Capa Servicios — API (FastAPI)"]
+        API["API REST /api/v1 + JWT"]
+        AUTH["Servicio Auth + RBAC"]
+        PETS["Servicio Mascotas"]
+        HIST["Servicio Historial Clinico"]
+        APPT["Servicio Citas y Agenda"]
+        WAIT["Servicio Lista de Espera"]
+        NOTIF["Servicio Notificaciones"]
+        IA["Servicio IA Preventiva"]
+        REP["Servicio Reportes"]
+    end
+
+    subgraph DATOS["Capa Datos e Infraestructura"]
+        DB[("PostgreSQL — fuente unica")]
+        REDIS[("Redis — cache / broker / colas")]
+        S3[("S3 — examenes y PDF")]
+        CELERY["Celery — tareas batch"]
+    end
+
+    subgraph EXT["Proveedores externos"]
+        WA["WhatsApp Business API"]
+        FCM["Firebase Cloud Messaging"]
+        GEMINI["Google Gemini API"]
+    end
+
+    O -->|"historial, citas, espera, IA, push"| MOVIL
+    V -->|"historial completo, vacunas, tablero"| WEB
+    P -->|"tablero del dia, slots, espera, semanal"| WEB
+    AD -->|"usuarios, clinicas, protocolos, reportes"| WEB
+    PUB -->|"sin login (token QR)"| QR
+
+    MOVIL -->|"HTTPS /api/v1 (JWT)"| API
+    WEB -->|"HTTPS /api/v1 (JWT)"| API
+    QR -->|"GET publico token"| API
+
+    API -->|"valida token y rol"| AUTH
+    API --> PETS
+    API --> HIST
+    API --> APPT
+    API --> WAIT
+    API --> NOTIF
+    API --> IA
+    API --> REP
+
+    AUTH -->|"roles/usuarios"| DB
+    PETS -->|"CRUD mascotas"| DB
+    HIST -->|"historial multi-sede"| DB
+    HIST -->|"examenes/PDF"| S3
+    APPT -->|"citas y cupos"| DB
+    APPT -->|"libera cupo"| WAIT
+    WAIT -->|"cola por horario"| REDIS
+
+    NOTIF -->|"recordatorios"| WA
+    NOTIF -->|"push"| FCM
+    IA -->|"triaje/resumenes"| GEMINI
+    IA -->|"persiste consultas"| DB
+    REP -->|"reportes"| DB
+
+    CELERY -->|"programa/consume"| REDIS
+    CELERY -->|"batch vencimientos"| DB
+    CELERY -->|"dispara recordatorios"| NOTIF
+    CELERY -->|"libera cupos no confirmados"| APPT
