@@ -1,92 +1,101 @@
-Nombre: PetCare
-Tipo: Plataforma híbrida Web + Aplicación móvil
-Enfoque: Cuidado preventivo de mascotas mediante Inteligencia Artificial
+# 🐾 PetCare — Plataforma de Cuidado Preventivo de Mascotas con IA
 
-ViSION
-PetCare busca convertirse en una plataforma integral para el cuidado y seguimiento preventivo de mascotas,
-conectando a propietarios y profesionales veterinarios mediante una aplicación móvil y una plataforma web.
-La plataforma permitirá centralizar la información de cada mascota y utilizar inteligencia artificial como
-herramienta de apoyo preventivo, analizando síntomas, registros y cambios en los patrones de la mascota
-para generar alertas, orientación y resúmenes útiles para el propietario y el veterinario.
-PetCare no busca reemplazar al veterinario, sino facilitar el seguimiento de la mascota y proporcionar 
-información de apoyo para una atención más oportuna.
+> **PetCare** es una plataforma híbrida (Aplicación Móvil + Web) orientada al seguimiento y cuidado preventivo de mascotas mediante Inteligencia Artificial, conectando a propietarios y profesionales veterinarios para una atención más oportuna.
 
-PROBLEMA 
-Los propietarios pueden tener dificultades para mantener organizada la información de sus mascotas y
-reconocer cuándo determinados cambios pueden requerir atención.
-La información suele encontrarse dispersa entre libretas, fotografías, conversaciones, documentos y 
-diferentes aplicaciones. Además, ante síntomas o cambios de comportamiento, muchos propietarios recurren a
-búsquedas en Internet que pueden proporcionar información general, contradictoria o difícil de interpretar.
-Por otra parte, el veterinario puede no disponer de un historial completo de los acontecimientos ocurridos antes de una consulta.
+---
 
-SOLUCION
-PetCare será una plataforma compuesta por una aplicación móvil para propietarios y una aplicación web orientada principalmente a 
-profesionales veterinarios y administradores.
-La plataforma permitirá centralizar:
+## 📌 Índice
+1. [Visión del Proyecto](#-visión-del-proyecto)
+2. [Problema que Resolvemos](#-problema-que-resolvemos)
+3. [Solución](#-solución)
+4. [Roles y Matriz de Permisos (RBAC)](#-roles-y-matriz-de-permisos-rbac)
+5. [Alcance del MVP](#-alcance-del-mvp)
+6. [Módulos del Sistema](#-módulos-del-sistema)
+7. [Arquitectura y Tecnologías](#-arquitectura-y-tecnologías)
+8. [Instalación y Configuración](#-instalación-y-configuración)
+9. [Contribución](#-contribución)
+10. [Licencia y Contacto](#-licencia-y-contacto)
 
--Información de las mascotas-Historial de salud
--Vacunas
--Medicamentos
--Citas veterinarias
--Seguimiento de peso y otros registros
--Recordatorios y alertas
--Análisis preventivo mediante IA
--Comunicación entre propietario y veterinario
--Perfil de emergencia mediante QR
--Alimentación
--Peso y evolución
--Síntomas y observaciones
--Documentos relevantes
--Localización de veterinarias cercanas
+---
 
-ROLES
--Propietario
--Veterinario
--Personal de clínica
--Administrador
+## 🎯 Visión del Proyecto
 
-MVP incluirá:
--Autenticación y usuarios
--Gestión de mascotas
--Historial de salud
--Síntomas y observaciones
--Vacunas y medicamentos
--Seguimiento de evolución
--Gestión de citas
--Notificaciones
--Roles y permisos
--Evaluación preventiva mediante IA
--Detección de cambios
--Resumen de historial mediante IA
--Panel web para veterinarios
--Panel administrativo
--QR de emergencia
--Localización de veterinarias
+Centralizar la información médica y comportamental de las mascotas en un solo lugar y utilizar **Inteligencia Artificial** como una herramienta de apoyo preventivo. 
 
-Módulos principales
+> **Nota:** PetCare **no reemplaza la consulta profesional**, sino que analiza síntomas, patrones e historial para generar alertas, orientaciones y resúmenes estructurados que faciliten la labor del veterinario.
 
+---
+
+## ❓ Problema que Resolvemos
+
+- **Información Dispersa:** Los datos clínicos, esquemas de vacunación y recordatorios suelen gestionarse en libretas, notas, chats y fotografías fragmentadas.
+- **Dificultad en Detección Temprana:** A los propietarios les cuesta identificar cuándo un cambio sutil de conducta o síntoma requiere atención médica.
+- **Información No Confiable en la Web:** Ante cualquier anomalía, los dueños suelen acudir a búsquedas genéricas en Internet que generan desinformación o alarma injustificada.
+- **Historial Incompleto para el Veterinario:** Al momento de la consulta, los veterinarios carecen de un registro continuo de lo sucedido previo al síntoma.
+
+---
+
+## 💡 Solución
+
+Una plataforma integral que conecta a **Propietarios** (vía App Móvil) con **Veterinarios y Personal de Clínica** (vía Panel Web).
+
+### Características Clave
+- **Gestión Centralizada:** Historial clínico, vacunas, medicamentos, peso, síntomas y documentos.
+- **Análisis Preventivo con IA:** Detección de patrones anómalos, evaluación de síntomas e informes resumidos para el veterinario.
+- **Perfil de Emergencia con QR:** Acceso rápido a datos críticos del paciente en situaciones de pérdida o emergencia.
+- **Geolocalización:** Búsqueda rápida de clínicas y servicios veterinarios cercanos.
+
+---
+
+## 👥 Roles y Matriz de Permisos (RBAC)
+
+### Roles Definidos
+- 🐶 **Propietario:** Gestiona sus mascotas, registra síntomas, consulta la IA y agenda citas.
+- 🩺 **Veterinario:** Consulta historiales, lee resúmenes de IA y atiende consultas/citas.
+- 🏥 **Personal de Clínica:** Gestiona la agenda de citas y recepción de pacientes.
+- ⚙️ **Administrador:** Administra usuarios, clínicas, métricas e infraestructura de la plataforma.
+
+### Matriz de Módulos
+
+| Módulo | Propietario | Veterinario | Personal de Clínica | Administrador |
+| :--- | :---: | :---: | :---: | :---: |
+| **Autenticación** | Sí | Sí | Sí | Sí |
+| **Gestión de Mascotas** | Sí | Ver | Ver | Ver |
+| **Salud** | Sí | Sí | Ver | Ver |
+| **Citas** | Sí | Sí | Sí | Ver |
+| **Inteligencia Artificial** | Sí | Sí | No | No |
+| **Emergencias (QR)** | Sí | Ver | Ver | Ver |
+| **Administración** | No | No | No | Sí |
+
+---
+
+## 🚀 Alcance del MVP
+
+El Producto Mínimo Viable (MVP) incluye:
+
+- [x] Autenticación y gestión de usuarios por roles.
+- [x] Registro y gestión de mascotas (alimentación, peso, síntomas).
+- [x] Historial de salud, vacunas, medicamentos y documentos.
+- [x] Agendamiento y gestión de citas médicas.
+- [x] Motor de evaluación y alertas preventivas impulsado por IA.
+- [x] Generación de resúmenes clínicos con IA para el veterinario.
+- [x] Generador de Perfil y Código QR de emergencia.
+- [x] Localización geográfica de veterinarias cercanas.
+- [x] Panel Web de gestión para veterinarios y administradores.
+
+---
+
+## 🧩 Módulos del Sistema
+
+```text
 Autenticación
      ↓
-Gestión de mascotas
+Gestión de Mascotas ──→ QR de Emergencia
      ↓
-Salud
+Módulo de Salud ──────→ Geolocalización de Clínicas
      ↓
-Citas
+Gestión de Citas
      ↓
-IA
+Evaluación Preventiva e Insights con IA
      ↓
-Emergencias
-     ↓
-Administración
-
-MATRIZ 
-
-|   Módulo      |Propietario | Veterinario |Personal de clínica |Administrador |
-|---------------|:----------:|:-----------:|:------------------:|:------------:|
-| Autenticación | si         |   si        | si                 | si           |
-| Gestión de mascotas | si   | ver         | ver                | ver          |
-| Salud         | si         | si          | ver                | ver          |
-| Citas         | si         | si          | si                 | ver          |
-| IA            | si         | si          | no                 | no           |
-| Emergencias   | si         |ver          | ver                | ver          |
-| Administración | no        | no          | no                 | si           |
+Panel Administrativo / Clínica
