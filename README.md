@@ -4,7 +4,7 @@
 
 ---
 
-## 📌 Índice
+##  Índice
 1. [Visión del Proyecto](#-visión-del-proyecto)
 2. [Problema que Resolvemos](#-problema-que-resolvemos)
 3. [Solución](#-solución)
@@ -18,7 +18,7 @@
 
 ---
 
-## 🎯 Visión del Proyecto
+##  Visión del Proyecto
 
 Centralizar la información médica y comportamental de las mascotas en un solo lugar y utilizar **Inteligencia Artificial** como una herramienta de apoyo preventivo. 
 
@@ -26,7 +26,7 @@ Centralizar la información médica y comportamental de las mascotas en un solo 
 
 ---
 
-## ❓ Problema que Resolvemos
+##  Problema que Resolvemos
 
 - **Información Dispersa:** Los datos clínicos, esquemas de vacunación y recordatorios suelen gestionarse en libretas, notas, chats y fotografías fragmentadas.
 - **Dificultad en Detección Temprana:** A los propietarios les cuesta identificar cuándo un cambio sutil de conducta o síntoma requiere atención médica.
@@ -35,7 +35,7 @@ Centralizar la información médica y comportamental de las mascotas en un solo 
 
 ---
 
-## 💡 Solución
+##  Solución
 
 Una plataforma integral que conecta a **Propietarios** (vía App Móvil) con **Veterinarios y Personal de Clínica** (vía Panel Web).
 
@@ -47,13 +47,13 @@ Una plataforma integral que conecta a **Propietarios** (vía App Móvil) con **V
 
 ---
 
-## 👥 Roles y Matriz de Permisos (RBAC)
+##  Roles y Matriz de Permisos (RBAC)
 
 ### Roles Definidos
-- 🐶 **Propietario:** Gestiona sus mascotas, registra síntomas, consulta la IA y agenda citas.
-- 🩺 **Veterinario:** Consulta historiales, lee resúmenes de IA y atiende consultas/citas.
-- 🏥 **Personal de Clínica:** Gestiona la agenda de citas y recepción de pacientes.
-- ⚙️ **Administrador:** Administra usuarios, clínicas, métricas e infraestructura de la plataforma.
+-  **Propietario:** Gestiona sus mascotas, registra síntomas, consulta la IA y agenda citas.
+-  **Veterinario:** Consulta historiales, lee resúmenes de IA y atiende consultas/citas.
+-  **Personal de Clínica:** Gestiona la agenda de citas y recepción de pacientes.
+-  **Administrador:** Administra usuarios, clínicas, métricas e infraestructura de la plataforma.
 
 ### Matriz de Módulos
 
@@ -69,7 +69,7 @@ Una plataforma integral que conecta a **Propietarios** (vía App Móvil) con **V
 
 ---
 
-## 🚀 Alcance del MVP
+##  Alcance del MVP
 
 El Producto Mínimo Viable (MVP) incluye:
 
@@ -85,9 +85,9 @@ El Producto Mínimo Viable (MVP) incluye:
 
 ---
 
-## 🧩 Módulos del Sistema
+##  Módulos del Sistema
 
-```text
+   text
 Autenticación
      ↓
 Gestión de Mascotas ──→ QR de Emergencia
