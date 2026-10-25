@@ -1,0 +1,70 @@
+﻿graph TD
+  subgraph Capa_Presentacion["A. CAPA DE PRESENTACIÓN (Futura)"]
+    AuthUI[\"Módulo Autenticación e Ingreso\"]
+    TutorUI[\"Panel Propietario/Tutor\"]
+    VetUI[\"Interfaz Veterinario\"]
+    ClinicUI[\"Interfaz Personal de Clínica\"]
+    AdminUI[\"Interfaz Administrativa\"]
+    AIChatUI[\"Interfaz Asistente IA + Chat con Agendamiento\"]
+    ResponsiveUI[\"UI Adaptable Desktop/Tablet/Móvil\"]
+  end
+
+  subgraph Capa_Aplicacion["B. CAPA DE APLICACIÓN Y SERVICIOS DE NEGOCIO"]
+    AuthZ[\"AuthN/AuthZ por Roles (4 roles)\"]
+    UsersSvc[\"Gestión Usuarios y Permisos\"]
+    PetsSvc[\"Gestión Mascotas y Propietarios\"]
+    ClinicSvc[\"Historial Clínico y Consultas\"]
+    PreventiveSvc[\"Vacunas, Desparasitaciones y Recordatorios\"]
+    ApptSvc[\"Gestión de Citas / Sedes / Disponibilidad / Reserva\"]
+    AuditSvc[\"Trazabilidad y Auditoría\"]
+    ValidationSvc[\"Validación Reglas de Negocio\"]
+  end
+
+  subgraph Capa_IA["C. CAPA DEL ASISTENTE VETERINARIO INTELIGENTE"]
+    AIOrch[\"Orquestador del Asistente IA\"]
+    AIContext[\"Gestión de Contexto Mascota/Motivo\"]
+    AITriage[\"Triage / Señales de Alarma / Urgencia\"]
+    AIGuard[\"Guardrails / Seguridad / Validación Respuestas\"]
+    LLMInt[\"Servicio LLM externo por definir\"]
+    AIBooking[\"Integración Chat→Citas (Agendamiento)\"]
+    AIEscal[\"Escalamiento/Derivación (Pendiente)\"]
+  end
+
+  subgraph Capa_Datos["D. CAPA DE DATOS Y PERSISTENCIA"]
+    DBMain[\"Base de datos por definir (Tecnología pendiente)\"]
+    RepoUsers[\"Repositorio Usuarios/Roles/Permisos\"]
+    RepoClinic[\"Repositorio Mascotas/Historial/Consultas\"]
+    RepoAppt[\"Repositorio Citas/Sedes/Disponibilidad\"]
+    RepoAudit[\"Repositorio Auditoría/Conversaciones*\"]
+  end
+
+  subgraph Capa_Externos["E. SERVICIOS EXTERNOS E INFRAESTRUCTURA"]
+    ExtLLM[\"Proveedor LLM (Sin definir)\"]
+    ExtNotif[\"Servicio Notificaciones (Pendiente definición)\"]
+  end
+
+  AuthUI --> AuthZ
+  TutorUI --> PetsSvc
+  VetUI --> ClinicSvc
+  ClinicUI --> ApptSvc
+  AdminUI --> UsersSvc
+  AIChatUI --> AIOrch
+
+  AuthZ --> RepoUsers
+  UsersSvc --> RepoUsers
+  PetsSvc --> RepoClinic
+  ClinicSvc --> RepoClinic
+  PreventiveSvc --> RepoClinic
+  ApptSvc --> RepoAppt
+  AuditSvc --> RepoAudit
+  ValidationSvc --> ApptSvc
+
+  AIOrch --> AIContext
+  AIOrch --> AITriage
+  AIOrch --> AIGuard
+  AIOrch --> LLMInt
+  AITriage -.->|PRIORIDAD: Emergencias sobre agendamiento| AIOrch
+  LLMInt --> ExtLLM
+  AIBooking --> ApptSvc
+  AIOrch --> AIBooking
+  AIEscal -.->|Pendiente de confirmación| AIOrch
