@@ -1,0 +1,243 @@
+﻿<mxfile host="app.diagrams.net" modified="2026-10-25T00:00:00.000Z" agent="5.0" version="21.8.2" type="device">
+  <diagram name="PetCare - Componentes" id="petcare-components">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Arquitectura Lógica de Componentes - PetCare (Propuesta)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="650" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="Nota: MVP visual existente no funcional. Esta es arquitectura FUTURA propuesta." style="text;html=1;strokeColor=#d79b00;fillColor=#ffe6cc;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="650" y="70" width="500" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- CAPA DE PRESENTACION -->
+        <mxCell id="layer-presentation" value="A. CAPA DE PRESENTACIÓN (Interfaces Web - Futuras)" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="1920" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-auth-ui" value="«component»&#xa;Módulo de&#xa;Autenticación e Ingreso" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="30" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-tutor-ui" value="«component»&#xa;Panel del&#xa;Propietario/Tutor" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="210" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-vet-ui" value="«component»&#xa;Interfaz del&#xa;Veterinario" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="390" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-clinic-ui" value="«component»&#xa;Interfaz Personal&#xa;de Clínica" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="570" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-admin-ui" value="«component»&#xa;Interfaz&#xa;Administrativa" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="750" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-ai-chat-ui" value="«component»&#xa;Interfaz Asistente IA&#xa;+ Chat con Agendamiento" style="shape=component;align=left;spacingLeft=36;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="950" y="50" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="comp-responsive" value="«component»&#xa;UI Adaptable&#xa;(Desktop/Tablet/Móvil)" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#6c8ebf;" vertex="1" parent="layer-presentation">
+          <mxGeometry x="1190" y="50" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- CAPA APLICACION -->
+        <mxCell id="layer-app" value="B. CAPA DE APLICACIÓN Y SERVICIOS DE NEGOCIO" style="swimlane;startSize=30;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="1100" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-authz" value="«component»&#xa;AuthN/AuthZ por Roles&#xa;(4 roles)" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="30" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-users" value="«component»&#xa;Gestión Usuarios&#xa;y Permisos" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="210" y="50" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-pets" value="«component»&#xa;Gestión Mascotas&#xa;y Propietarios" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="380" y="50" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-clinic" value="«component»&#xa;Historial Clínico&#xa;y Consultas" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="550" y="50" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-preventive" value="«component»&#xa;Vacunas, Desparasitaciones&#xa;y Recordatorios" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="720" y="50" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-appointments" value="«component»&#xa;Gestión de Citas&#xa;Sedes/Disponibilidad/Reserva" style="shape=component;align=left;spacingLeft=36;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="layer-app">
+          <mxGeometry x="30" y="150" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-audit" value="«component»&#xa;Trazabilidad y&#xa;Auditoría" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="250" y="150" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-validation" value="«component»&#xa;Validación Reglas&#xa;de Negocio" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#9673a6;" vertex="1" parent="layer-app">
+          <mxGeometry x="430" y="150" width="150" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- CAPA IA -->
+        <mxCell id="layer-ai" value="C. CAPA DEL ASISTENTE VETERINARIO INTELIGENTE" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="350" width="800" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-orchestrator" value="«component»&#xa;Orquestador del&#xa;Asistente IA" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="layer-ai">
+          <mxGeometry x="30" y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-context" value="«component»&#xa;Gestión de Contexto&#xa;Mascota/Motivo" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="layer-ai">
+          <mxGeometry x="210" y="50" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-triage" value="«component»&#xa;Triage / Señales&#xa;de Alarma / Urgencia" style="shape=component;align=left;spacingLeft=36;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="layer-ai">
+          <mxGeometry x="380" y="50" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-guardrails" value="«component»&#xa;Guardrails / Seguridad&#xa;/ Validación Respuestas" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#82b366;" vertex="1" parent="layer-ai">
+          <mxGeometry x="570" y="50" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-llm" value="«component»&#xa;Servicio LLM externo&#xa;por definir" style="shape=component;align=left;spacingLeft=36;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="layer-ai">
+          <mxGeometry x="30" y="150" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-booking" value="«component»&#xa;Integración Chat→Citas&#xa;(Agendamiento)" style="shape=component;align=left;spacingLeft=36;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="layer-ai">
+          <mxGeometry x="220" y="150" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ai-escalation" value="«component»&#xa;Escalamiento/Derivación&#xa;(Pendiente)" style="shape=component;align=left;spacingLeft=36;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="layer-ai">
+          <mxGeometry x="410" y="150" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- CAPA DATOS -->
+        <mxCell id="layer-data" value="D. CAPA DE DATOS Y PERSISTENCIA" style="swimlane;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="700" width="1100" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="db-main" value="«component»&#xa;Base de datos por definir&#xa;(Tecnología pendiente)" style="shape=component;align=left;spacingLeft=36;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="layer-data">
+          <mxGeometry x="30" y="50" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="repo-users" value="«component»&#xa;Repositorio&#xa;Usuarios/Roles/Permisos" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="layer-data">
+          <mxGeometry x="240" y="50" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="repo-clinic" value="«component»&#xa;Repositorio&#xa;Mascotas/Historial/Consultas" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="layer-data">
+          <mxGeometry x="430" y="50" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="repo-appt" value="«component»&#xa;Repositorio&#xa;Citas/Sedes/Disponibilidad" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="layer-data">
+          <mxGeometry x="640" y="50" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="repo-audit" value="«component»&#xa;Repositorio&#xa;Auditoría/Conversaciones*" style="shape=component;align=left;spacingLeft=36;fillColor=#ffffff;strokeColor=#d6b656;" vertex="1" parent="layer-data">
+          <mxGeometry x="850" y="50" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="note-db" value="*Persistencia de conversaciones del asistente: decisión pendiente" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9" vertex="1" parent="layer-data">
+          <mxGeometry x="30" y="140" width="400" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- EXTERNOS -->
+        <mxCell id="layer-ext" value="E. SERVICIOS EXTERNOS E INFRAESTRUCTURA" style="swimlane;startSize=30;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1160" y="700" width="800" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-llm" value="«external»&#xa;Proveedor LLM&#xa;(Sin definir)" style="shape=component;align=left;spacingLeft=36;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="layer-ext">
+          <mxGeometry x="30" y="50" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-notif" value="«external»&#xa;Servicio Notificaciones&#xa;(Pendiente definición)" style="shape=component;align=left;spacingLeft=36;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="layer-ext">
+          <mxGeometry x="200" y="50" width="170" height="70" as="geometry" />
+        </mxCell>
+        
+        <!-- RELACIONES PRINCIPALES -->
+        <mxCell id="rel1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;dashed=0;" edge="1" parent="1" source="comp-auth-ui" target="svc-authz">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="330" />
+              <mxPoint x="110" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel1-label" value="autentica/autorización" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" vertex="1" connectable="0" parent="rel1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="comp-ai-chat-ui" target="ai-orchestrator">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="340" />
+              <mxPoint x="1270" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel2-label" value="mensajes/conversación" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" vertex="1" connectable="0" parent="rel2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="ai-orchestrator" target="ai-llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3-label" value="consulta IA" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" vertex="1" connectable="0" parent="rel3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;dashed=1;" edge="1" parent="1" source="ai-llm" target="ext-llm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="690" />
+              <mxPoint x="1235" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel4-label" value="API externa (sin definir)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" vertex="1" connectable="0" parent="rel4">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d79b00;" edge="1" parent="1" source="ai-booking" target="svc-appointments">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1465" y="660" />
+              <mxPoint x="165" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel5-label" value="Chat→Agendamiento: consulta disponibilidad / solicitar reserva" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fillColor=#fff2cc;" vertex="1" connectable="0" parent="rel5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint x="-200" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="rel6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="svc-appointments" target="repo-appt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="svc-clinic" target="repo-clinic">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="625" y="680" />
+              <mxPoint x="525" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="svc-authz" target="repo-users">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="680" />
+              <mxPoint x="325" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="svc-audit" target="repo-audit">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="325" y="700" />
+              <mxPoint x="945" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#b85450;strokeWidth=2;" edge="1" parent="1" source="ai-triage" target="ai-orchestrator">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1465" y="440" />
+              <mxPoint x="1110" y="440" />
+              <mxPoint x="1110" y="435" />
+              <mxPoint x="1270" y="435" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel10-label" value="PRIORIDAD: Emergencias sobre agendamiento" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;fontColor=#b85450;" vertex="1" connectable="0" parent="rel10">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint x="-100" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="db-note" value="Base de datos física no definida en requisitos actuales" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="60" y="890" width="280" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

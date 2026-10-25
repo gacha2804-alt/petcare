@@ -1,5 +1,20 @@
 # Requisitos — PetCare
 
+PetCare — Estado actual del proyecto y propósito de los requisitos
+
+Estado actual:
+PetCare no tiene una página web funcional ni un backend implementado. El proyecto parte de un MVP visual elaborado con Google Stitch IA, que sirve como referencia de diseño pero no contiene funcionalidades operativas. Este documento especifica el sistema que se quiere construir, sin presentar como implementadas las funcionalidades que solo están diseñadas o documentadas.
+
+Propósito de los requisitos:
+Este documento define los requisitos funcionales y no funcionales del sistema PetCare futuro, con un enfoque en dos nuevas capacidades mediante asistente de IA:
+1. Orientación inicial segura para el tutor, incluyendo reconocimiento de señales de alarma.
+2. Agendamiento de citas veterinarias integrado en la conversación de chat, desde la recomendación de valoración presencial hasta la reserva confirmada.
+
+Diferencia entre el MVP visual existente y el sistema futuro:
+El MVP actual es una propuesta de diseño estático sin lógica, bases de datos ni flujos operativos. El sistema futuro debe proporcionar autenticación, asociación de mascotas, consulta de historial clínico, generación de recordatorios, gestión de citas con disponibilidad real de dos sedes, y un asistente de IA que ofrezca orientación empática y basada en criterios veterinarios sin sustituir la atención profesional. Los requisitos aquí especificados son objetivos de construcción, no descripciones de lo que ya funciona.
+
+---
+
 PetCare es una plataforma web orientada a la gestión y el cuidado preventivo de mascotas, que permite centralizar información clínica, gestionar citas veterinarias y facilitar el seguimiento de vacunas y desparasitaciones, conectando a propietarios con profesionales y personal de clínicas veterinarias.
 
 Fuente: entrevista simulada con cliente veterinario (ver [docs/Ia/entrevista.md](./entrevista.md)) y contexto del [README.md](../../README.md). Este documento conserva los requisitos existentes que siguen siendo válidos y actualiza únicamente los aspectos que cambian con la nueva funcionalidad de asistente de IA para orientación inicial y agendamiento de citas desde el chat.
@@ -10,20 +25,20 @@ Fuente: entrevista simulada con cliente veterinario (ver [docs/Ia/entrevista.md]
 
 | ID | Nombre | Descripción | Actor responsable | Precondiciones | Flujo principal | Flujos alternativos y excepciones | Postcondiciones | Criterios de aceptación verificables | Prioridad |
 |---|---|---|---|---|---|---|---|---|---|
-| RF-01 | Registro de mascota | El propietario registra una mascota proporcionando nombre, especie, sexo, fecha de nacimiento y datos identificatorios. | Propietario | El propietario está autenticado y no ha bloqueado la gestión de mascotas. | El propietario completa los datos obligatorios y confirma la operación. | Si faltan datos obligatorios, el sistema no registra la mascota y solicita la información faltante. | La mascota queda asociada al propietario y disponible para su consulta y gestión. | Se valida que el registro exige datos mínimos obligatorios; el sistema informa errores de validación y no persiste registros incompletos. | Must |
-| RF-02 | Consulta del historial clínico | El propietario consulta el historial clínico de una mascota registrada. | Propietario | Existe al menos una mascota asociada al propietario. | El sistema muestra histórico clínico, fechas, motivo y registros asociables. | Si no existe historial, se presenta un estado vacío con información clara. | El propietario visualiza la información autorizada y la historia queda trazada. | Se verifica que la vista incluye registros médicos y no expone información no autorizada. | Must |
-| RF-03 | Autorización de acceso veterinario | El propietario autoriza, consulta y revoca el acceso de veterinarios al historial clínico de cada mascota. | Propietario | La mascota existe y el veterinario está registrado en la plataforma. | El propietario gestiona permisos por mascota y veterinario. | Si un veterinario es revocado, pierde acceso inmediato a la información. | El permiso queda actualizado en el registro de seguridad. | Se valida que cada cambio de acceso queda asociado a la mascota y al usuario. | Must |
+| RF-01 | Registro de mascota | El tutor (propietario) registra una mascota proporcionando nombre, especie, sexo, fecha de nacimiento y datos identificatorios. | Tutor (propietario) | El tutor está autenticado y no ha bloqueado la gestión de mascotas. | El tutor completa los datos obligatorios y confirma la operación. | Si faltan datos obligatorios, el sistema no registra la mascota y solicita la información faltante. | La mascota queda asociada al propietario y disponible para su consulta y gestión. | Se valida que el registro exige datos mínimos obligatorios; el sistema informa errores de validación y no persiste registros incompletos. | Must |
+| RF-02 | Consulta del historial clínico | El tutor consulta el historial clínico de una mascota registrada. | Tutor | Existe al menos una mascota asociada al tutor. | El sistema muestra histórico clínico, fechas, motivo y registros asociables. | Si no existe historial, se presenta un estado vacío con información clara. | El propietario visualiza la información autorizada y la historia queda trazada. | Se verifica que la vista incluye registros médicos y no expone información no autorizada. | Must |
+| RF-03 | Autorización de acceso veterinario | El tutor autoriza, consulta y revoca el acceso de veterinarios al historial clínico de cada mascota. | Tutor | La mascota existe y el veterinario está registrado en la plataforma. | El tutor gestiona permisos por mascota y veterinario. | Si un veterinario es revocado, pierde acceso inmediato a la información. | El permiso queda actualizado en el registro de seguridad. | Se valida que cada cambio de acceso queda asociado a la mascota y al usuario. | Must |
 | RF-04 | Registro de consulta veterinaria | El veterinario autorizado registra una consulta asociada a una mascota. | Veterinario | Hay autorización vigente y la mascota existe. | El veterinario registra motivo, diagnóstico y observaciones. | Si faltan datos obligatorios, se rechaza el registro. | La consulta queda vinculada a la mascota y a la sede correspondiente. | Se valida que la consulta requiere datos mínimos y se asocia a la mascota y al veterinario. | Must |
-| RF-05 | Solicitud y confirmación de citas | El propietario solicita una cita seleccionando una clínica, un veterinario y un horario disponible ofrecido por la clínica. | Propietario | Existe disponibilidad real. | El propietario selecciona clínica, veterinario y horario. | Si el horario ya no está disponible, el sistema ofrece otras opciones o rechaza la elección. | La cita queda registrada en el sistema y visible para el personal correspondiente. | Se valida que la disponibilidad usada para la confirmación corresponde a un horario real y no duplicado. | Must |
-| RF-06 | Consulta de vacunas | El propietario consulta el registro de vacunas de una mascota. | Propietario | La mascota está registrada y sus vacunas se registran en el historial. | El sistema muestra fecha de aplicación y próxima fecha recomendada. | Si faltan datos, la vista informa que no hay información suficiente. | La información de vacunación queda visible y trazada. | Se verifica que cada vacuna está asociada a la mascota y a la fecha de aplicación. | Must |
-| RF-07 | Consulta de desparasitaciones | El propietario consulta el registro de desparasitaciones de una mascota. | Propietario | La mascota está registrada y el registro existe. | El sistema muestra fecha del tratamiento y próxima fecha recomendada. | Si no existe registro, se presenta vacío o con mensaje de ausencia de información. | La información queda disponible para seguimiento. | Se valida que se muestran fechas y no se infieren tratamientos inexistentes. | Should |
+| RF-05 | Solicitud y confirmación de citas | El tutor solicita una cita seleccionando una clínica, un veterinario y un horario disponible ofrecido por la clínica. | Tutor | Existe disponibilidad real. | El tutor selecciona clínica, veterinario y horario. | Si el horario ya no está disponible, el sistema ofrece otras opciones o rechaza la elección. | La cita queda registrada en el sistema y visible para el personal correspondiente. | Se valida que la disponibilidad usada para la confirmación corresponde a un horario real y no duplicado. | Must |
+| RF-06 | Consulta de vacunas | El tutor consulta el registro de vacunas de una mascota. | Tutor | La mascota está registrada y sus vacunas se registran en el historial. | El sistema muestra fecha de aplicación y próxima fecha recomendada. | Si faltan datos, la vista informa que no hay información suficiente. | La información de vacunación queda visible y trazada. | Se verifica que cada vacuna está asociada a la mascota y a la fecha de aplicación. | Must |
+| RF-07 | Consulta de desparasitaciones | El tutor consulta el registro de desparasitaciones de una mascota. | Tutor | La mascota está registrada y el registro existe. | El sistema muestra fecha del tratamiento y próxima fecha recomendada. | Si no existe registro, se presenta vacío o con mensaje de ausencia de información. | La información queda disponible para seguimiento. | Se valida que se muestran fechas y no se infieren tratamientos inexistentes. | Should |
 | RF-08 | Recordatorios preventivos | El sistema genera recordatorios para vacunas y desparasitaciones próximas a vencer. | Personal de clínica / sistema | Existe información de vacunación o desparasitación y configuración de recordatorios. | El sistema identifica vencimientos próximos y genera alertas. | Si se requiere confirmación o postergación, el personal debe poder gestionarlo. | El propietario recibe recordatorio y se registra el estado del mismo. | Se valida que el recordatorio se genera a partir de fechas reales y que se pueden registrar acciones sobre él. | Should |
 
 ### 1.2 Nuevos requisitos para el asistente veterinario inteligente y agendamiento desde el chat
 
 | ID | Nombre | Descripción | Actor responsable | Precondiciones | Flujo principal | Flujos alternativos y excepciones | Postcondiciones | Criterios de aceptación verificables | Prioridad |
 |---|---|---|---|---|---|---|---|---|---|
-| RF-09 | Selección de mascota en el chat | El tutor debe poder seleccionar una mascota y abrir un chat con contexto de la mascota elegida antes de describir la situación. | Propietario / tutor | El propietario está autenticado y tiene al menos una mascota registrada. | El tutor elige una mascota y el sistema asocia el hilo de conversación con esa mascota. | Si la mascota no existe o no está asociada, el sistema no permitirá continuar con el chat clínico. | El chat queda vinculado a la mascota seleccionada y su historial relevante puede consultarse si corresponde. | Se valida que el hilo de chat sólo puede iniciar con una mascota válida y que la selección queda visible en la conversación. | Must |
+| RF-09 | Selección de mascota en el chat | El tutor debe poder seleccionar una mascota y abrir un chat con contexto de la mascota elegida antes de describir la situación. | Tutor (propietario) | El tutor está autenticado y tiene al menos una mascota registrada. | El tutor elige una mascota y el sistema asocia el hilo de conversación con esa mascota. | Si la mascota no existe o no está asociada, el sistema no permitirá continuar con el chat clínico. | El chat queda vinculado a la mascota seleccionada y su historial relevante puede consultarse si corresponde. | Se valida que el hilo de chat sólo puede iniciar con una mascota válida y que la selección queda visible en la conversación. | Must |
 | RF-10 | Registro y comprensión del motivo de consulta | El asistente debe captar el motivo de la consulta del tutor mediante un mensaje libre o una conversación guiada, sin forzar un formulario médico largo. | Tutor / asistente IA | La mascota está seleccionada. | El tutor describe el percance, síntoma o comportamiento inusual; el sistema guarda una síntesis del motivo y realiza preguntas breves. | Si la información es insuficiente, la IA solicita datos específicos de gravedad o evolución. | El motivo de consulta queda registrado en el hilo para continuar la orientación y, si aplica, el agendamiento. | Se valida que la conversación conserva el motivo principal, que la IA solicita solo preguntas necesarias y que no exigirá más datos que los relevantes. | Must |
 | RF-11 | Orientación inicial basada en criterios veterinarios | El asistente ofrece orientación inicial empática, clara y comprensible, en lenguaje no técnico, tomando en cuenta la especie, edad y antecedentes de la mascota cuando exista y sea pertinente. | Asistente IA | La mascota y el motivo de consulta han sido identificados. | La IA hace preguntas breves, reconoce el contexto clínico disponible y responde con recomendaciones generales y señales a vigilar. | Si no hay información suficiente, la IA señala la limitación y solicita solo los datos mínimos necesarios. | El tutor recibe recomendaciones iniciales de bajo riesgo y una explicación de cuándo buscar atención profesional. | Se valida que la respuesta: (a) usa lenguaje claro, (b) no ofrece diagnóstico definitivo, (c) contempla información disponible de la mascota, y (d) recomienda atención profesional cuando procede. | Must |
 | RF-12 | Identificación de señales de alarma y recomendaciones de urgencia | El asistente debe detectar indicios de emergencia y alertar de manera clara sin generar miedo artificial ni demora innecesaria. | Asistente IA | Hay síntomas, comportamientos o indicadores que pueden sugerir urgencia. | La IA clasifica la situación según severidad y recomienda atención veterinaria inmediata cuando corresponda. | Si el tutor menciona síntomas graves, el sistema debe priorizar la urgencia sobre cualquier proceso de agendamiento. | El tutor queda informado de que debe buscar atención de urgencias si la situación lo requiere. | Se valida que la IA no condiciona la urgencia a completar el proceso de agendamiento y que el mensaje es explícito sobre la necesidad de atención inmediata. | Must |
@@ -49,7 +64,7 @@ Fuente: entrevista simulada con cliente veterinario (ver [docs/Ia/entrevista.md]
 | RNF-07 | El sistema debe mantener trazabilidad de la información clínica, de las citas y de los cambios asociados. | Cada operación relevante debe quedar asociada a un usuario, un timestamp y, si aplica, a la mascota, la sede o la cita involucrada. |
 | RNF-08 | El sistema debe contar con mecanismos de respaldo y recuperación ante fallos. | La información crítica de mascotas, permisos y citas debe poder recuperarse con procedimientos definidos por la infraestructura. |
 | RNF-09 | La información enviada al servicio de IA debe proteger la privacidad del tutor y de la mascota y no debe utilizarse para fines distintos de la atención y la orientación. | Los datos enviados al servicio de IA deben limitarse a lo mínimo necesario, y deben existir políticas de tratamiento y control de acceso. |
-| RNF-10 | Debe existir control de acceso según los cuatro roles existentes: propietario, veterinario, personal de clínica y administrador. | Cada acción debe validarse por rol; las funciones de agenda, historial y IA no deben quedar accesibles a todos los perfiles. |
+| RNF-10 | Debe existir control de acceso según los cuatro roles existentes: propietario, veterinario, personal de clínica y administrador. | Cada acción debe validarse por rol; las funciones de agenda, historial y IA no deben quedar accesibles a todos los perfiles. **Pendiente**: se requieren definiciones específicas de funciones y permisos del rol administrador. |
 | RNF-11 | La IA debe ofrecer orientación inicial sin asumir diagnósticos definitivos ni reemplazar la valoración veterinaria profesional. | El sistema debe incluir una nota visible de limitación y la conversación no debe presentar resultados clínicos como certeza. |
 | RNF-12 | La IA debe prevenir recomendaciones veterinarias peligrosas, incluidos medicamentos humanos, provocación del vómito sin indicación profesional y automedicación. | Las respuestas de la IA deben desincentivar estas acciones y priorizar la consulta profesional o la atención de urgencias. |
 | RNF-13 | El sistema debe proteger al asistente contra instrucciones maliciosas o intentos de manipular su comportamiento. | El modelo debe responder con guardrails y no debe revelar información privilegiada ni ejecutar acciones fuera de su alcance. |
@@ -87,7 +102,49 @@ Fuente: entrevista simulada con cliente veterinario (ver [docs/Ia/entrevista.md]
 - Should: escalamiento a personal veterinario, refinamiento del contexto de la mascota y mejoras de experiencia del asistente.
 - Los requisitos de IA deben tratarse como apoyo de orientación y no como sustituto de la atención profesional.
 
+## 9. Matriz de trazabilidad requisitos - roles - historias de usuario - módulos
+
+| Requisito | Rol principal | Historia de usuario | Módulo del sistema |
+|---|---|---|---|
+| RF-01 | Tutor (propietario) | Registrar nueva mascota en el sistema | Gestión de mascotas |
+| RF-02 | Tutor (propietario) | Consultar historial clínico de la mascota | Historial clínico |
+| RF-03 | Tutor (propietario) | Gestionar permisos de acceso veterinario | Seguridad y permisos |
+| RF-04 | Veterinario | Registrar consulta veterinaria | Consulta y registro clínico |
+| RF-05 | Tutor | Solicitar cita veterinaria | Agendamiento de citas |
+| RF-06 | Tutor | Consultar registro de vacunas | Historial clínico / Vacunas |
+| RF-07 | Tutor | Consultar registro de desparasitaciones | Historial clínico / Desparasitación |
+| RF-08 | Personal de clínica | Recibir recordatorios de vencimientos | Recordatorios / Sistema |
+| RF-09 | Tutor | Seleccionar mascota y iniciar chat con contexto | Asistente IA / Chat |
+| RF-10 | Tutor / asistente IA | Expresar motivo de consulta en chat | Asistente IA |
+| RF-11 | Tutor | Recibir orientación inicial de la IA | Asistente IA |
+| RF-12 | Tutor | Recibir alerta de señales de alarma | Asistente IA |
+| RF-13 | Tutor | Recibir recomendación de valoración presencial y agendar cita | Agendamiento de citas |
+| RF-14 | Tutor | Ver disponibilidad de dos sedes | Sedes |
+| RF-15 | Tutor | Agendar cita desde el chat sin salir | Agendamiento de citas |
+| RF-16 | Tutor | Confirmar reserva con datos obligatorios | Agendamiento de citas |
+| RF-17 | Sistema | Asociar cita a tutor, mascota y sede | Agendamiento de citas / Historial |
+| RF-18 | Tutor / personal autorizado | Consultar estado de cita agendada | Agendamiento de citas |
+| RF-19 | Sistema / tutor | Manejo de errores, cancelaciones y disponibilidad | Agendamiento de citas |
+| RF-20 | Personal veterinario / sistema | Derivación o escalamiento a humano | Asistencia humana / Flujo de urgencias |
+| RNF-01 | Propietario, veterinario | Acceso restringido al historial clínico | Seguridad / Permisos |
+| RNF-02 | Tutor, mascota | Protección de credenciales y datos personales | Seguridad / Autenticación |
+| RNF-03 | Todo usuario | Integridad de información clínica con trazabilidad | Seguridad / Auditoria |
+| RNF-04 | Tutor | Tiempos de respuesta adecuados para interacción fluida | Rendimiento |
+| RNF-05 | Todo usuario | Accesibilidad en navegadores y dispositivos | Interfaz / UI |
+| RNF-06 | Todos los roles | Interfaces claras con retroalimentación y confirmación | Usabilidad |
+| RNF-07 | Todo usuario | Trazabilidad de información, citas y cambios | Seguridad / Auditoria |
+| RNF-08 | Todo usuario | Mecanismos de respaldo y recuperación ante fallos | Infraestructura |
+| RNF-09 | Tutor, mascota | Privacidad en información enviada al servicio de IA | IA / Privacidad |
+| RNF-10 | Los cuatro roles | Control de acceso por rol | Seguridad / Permisos |
+| RNF-11 | Tutor | IA sin diagnósticos definitivos ni reemplazo profesional | Asistente IA |
+| RNF-12 | Tutor | IA que previene recomendaciones peligrosas | Asistente IA / Seguridad |
+| RNF-13 | Sistema | IA protegida contra instrucciones maliciosas | IA / Seguridad |
+| RNF-14 | Sistema | Agenda sin reservas duplicadas ni horarios ocupados | Agendamiento |
+| RNF-15 | Tutor | Agendamiento usable desde el chat en pocos pasos | Usabilidad / Chat |
+| RNF-16 | Sistema | Manejo de errores y recuperación en orientación y reserva | Robustez |
+| RNF-17 | Tutor | IA transparente sobre limitaciones | Asistente IA |
+| RNF-18 | Tutor sin conocimientos veterinarios | Chat accesible y comprensible sin terminología técnica | Usabilidad / Chat |
+
 ## 6. Notas de implementación y validación
 
 La funcionalidad propuesta amplía el alcance de PetCare sin alterar la base del proyecto: conserva la gestión de mascotas, historial clínico, permisos, citas y sedes, y agrega un flujo asistido para orientación inicial y agendamiento directo desde el chat. Cualquier integración real con IA, agenda veterinaria o derivación humana debe validarse con la operación real de la clínica antes de considerarla un requisito completamente implementado.
-
